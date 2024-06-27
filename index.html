@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css" />
+  <title>wessel.com | Portfolio & Webshop</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap");
+    @import url('https://fonts.googleapis.com/css?family=Nunito');
+
+    :root {
+      --ctp-macchiato-pink-rgb: 245 189 230;
+      --ctp-macchiato-mauve-rgb: 198 160 246;
+      --ctp-macchiato-red-rgb: 237 135 150;
+      --ctp-macchiato-sky-rgb: 145 215 227;
+      --ctp-macchiato-base-rgb: 36 39 58;
+      --dot-color-rgb: 180, 205, 237;
+      --background-rgb: 52, 73, 102;
+      --text-color-rgb: 235, 235, 210;
+      --link-color-rgb: 252, 56, 88;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      padding: 0px;
+      margin: 0px;
+    }
+
+    body {
+      padding: 0 2rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      min-width: 100vw;
+      min-height: 100vh;
+      max-width: 50vw;
+      background: rgb(var(--background-rgb));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: rgb(var(--text-color-rgb));
+      flex-direction: column;
+      cursor: auto;
+      position: relative;
+      background-size: 40px 40px;
+      background-image: radial-gradient(circle, rgba(var(--dot-color-rgb), 0.5) 1px, rgba(0, 0, 0, 0) 2px);
+      animation: backgroundAnimation 1200s linear infinite;
+    }
+
+    @media (min-width: 800px) {
+      body main {
+        max-width: 60vw;
+      }
+    }
+
+    body footer {
+      text-align: center;
+      bottom: 0;
+      padding: 3rem;
+      font-size: 0.75rem;
+      color: rgb(var(--ctp-macchiato-mauve-rgb));
+    }
+
+    body span {
+      color: rgb(var(--ctp-macchiato-red-rgb));
+    }
+
+    body h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    body small {
+      font-size: 1rem;
+      color: rgb(var(--ctp-macchiato-mauve-rgb));
+    }
+
+    body a,
+    body a:visited,
+    body a:hover,
+    body a:active,
+    body .info {
+      text-decoration: none;
+      cursor: auto;
+      color: rgb(var(--link-color-rgb));
+    }
+
+    body a span,
+    body a:visited span,
+    body a:hover span,
+    body a:active span,
+    body .info span {
+      color: rgb(var(--ctp-macchiato-red-rgb));
+    }
+
+    body .cursor {
+      width: 30px;
+      height: 30px;
+      background-color: rgba(237, 135, 150, 0.2);
+      position: absolute;
+      display: none;
+      border-radius: 100%;
+      pointer-events: none;
+      transform: scale(0.8);
+      transition: 0.5s background, 0.2s transform;
+    }
+
+    @keyframes fadeIn {
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    body .fade {
+      animation: fadeIn 0.5s forwards;
+      opacity: 0;
+      transform: scale(0.85);
+    }
+
+    @keyframes backgroundAnimation {
+      from {
+        background-position: 0 0;
+      }
+      to {
+        background-position: -10000px -10000px;
+      }
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .warning {
+      font-size: 9px;
+      color: #fa8282;
+    }
+
+    .email-box {
+      display: inline-block;
+      padding: 2px 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #fff;
+      color: black;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+      position: relative;
+      margin-top: 1rem;
+    }
+
+    .email-box:hover {
+      background-color: #f0f0f0;
+    }
+
+    .copy-icon {
+      margin-left: 0.5rem;
+    }
+
+    .tooltip {
+      visibility: hidden;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 10px;
+      position: absolute;
+      z-index: 1;
+      bottom: 100%; 
+      left: 50%;
+      margin-left: -60px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .email-box:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+    .spacer {
+    font-size: 30px;
+    color: #000; /* Fallback for older browsers */
+    color: rgba(0, 0, 0, 0.0);
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor"></div>
+  <script src="index.js" defer></script>
+  <main>
+    <div class="spacer"><p>You are using an out of date browser! Some things may be broken!</p></div>
+    <div class="fade">
+      <h1>wessel.com <small>  // An online art gallery</small></h1>
+      <p>Do you have an interest in art? Are you interested in buying art? Or maybe you're just bored?</p>
+      <p>Well, whatever your reason for being here is, thank you for visiting this website, enjoy your time here! :)<br>You can view (and maybe even buy) my art on this website.
+    </div>
+    <br />
+    <div class="fade">
+      <h3>My art</h3>
+      <p>I make still life art influenced by the painting techniques originating from the renaissance.<br>You can check all of my art out <a href="#" onclick="scrollDown()">here</a> and purchase art <a href="#" onclick="scrollDownTwo()">here</a>!</p>
+    </div>
+    <br />
+    <div class="fade">
+      <h3>Socials</h3>
+      <p>You can find me on <a href="#">LinkedIn</a>, <a href="#">Facebook</a>, <a href="#">GoFundMe</a> and <a href="#">Twitter</a>.</p>
+      <p class="warning">
+      Note: This is not an appropriate method of contact. For business inquiries, please go to the 'Buy my art' section.
+      </p>
+    </div>
+    <br />
+    <div class="fade">
+      <h3>Gallery</h3>
+      <div class="gallery" id="gallery">
+        <img src="https://images.saatchiart.com/saatchi/1441385/art/7985089/7052471-HSC00002-7.jpg" alt="Image 1">
+        <img src="https://admin.itsnicethat.com/images/qwmwQZtLOyfma0k2-5Ad_RviZIc=/163463/width-1440/5d08948a7fa44cbb4f00127b.jpg" alt="Image 2">
+        <img src="https://bluethumb.com.au/blog/wp-content/uploads/2021/08/jos-kivits-listing-bluethumb-bd40-scaled.jpeg" alt="Image 3">
+        <img src="https://realismtoday.com/wp-content/uploads/2022/08/still-life-contemporary-realism-David-Cheifetz-venerable-slice.jpg" alt="Image 4">
+        <img src="https://www.guggenheim.org/wp-content/uploads/1879/01/78.2514.4_ph_web.jpg" alt="Image 5">
+        <img src="https://imbaliartbooks.org.za/wp-content/uploads/imbali_images/Alexis%20Preller,%20Die%20eierdoos,%201952,%20olie%20op%20hout-1024x854.jpg" alt="Image 6">
+        <img src="https://mypaintingclub.com/images/blog/LemonTea_1000.jpg" alt="Image 7">
+        <img src="https://artbythesea.co.nz/Paul%20Hooker/gerberasoilpainting2.jpg" alt="Image 8">
+        <img src="https://cdn-blog.superprof.com/blog_gb/wp-content/uploads/2018/07/le-pannier-de-pomme.jpg" alt="Image 9">
+        <img src="https://michaellynnadams.com/wp-content/uploads/2022/06/MLAdams-Tangerine-On-Old-Books-9x12-inches-oil-on-canvas-panel.jpg" alt="Image 10">
+      </div>
+    </div>
+    <br />
+    <div class="fade" id="buy">
+      <h3>Buy my art</h3>
+      <p>Like what you see? Everything listed here is available for purchase!</p>
+      <p>Contact <span class="email-box" onclick="copyToClipboard('example@gmail.com')">
+        example@gmail.com
+        <span class="copy-icon">📋</span>
+        <span class="tooltip">Click to copy</span>
+      </span> for the negotiable pricing, delivery, and more.</p>
+    </div>
+  </main>
+  <footer class="fade">
+    <p><span style="font-style:italic">Maddox Wessel Wayne Long</span></p>
+  </footer>
+
+  <script>
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(function() {
+        alert("Email address copied to clipboard!");
+      }, function(err) {
+        console.error("Uh oh! Could not copy text: ", err);
+      });
+    }
+  </script>
+</body>
+</html>
